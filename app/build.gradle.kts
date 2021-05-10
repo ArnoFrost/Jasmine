@@ -34,6 +34,47 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    sourceSets {
+        getByName("main") {
+            res.srcDirs(listSubFile())
+        }
+    }
+    android.applicationVariants.all {
+        val buildType = this.buildType.name
+        outputs.all {
+            if (this is com.android.build.gradle.internal.api.ApkVariantOutputImpl) {
+                when (buildType) {
+                    "debug" -> {
+                        this.outputFileName =
+                            "Jasmine_DSL_v${defaultConfig.versionName}_${buildType}.apk"
+                    }
+                    "release" -> {
+                        this.outputFileName =
+                            "Jasmine_v${defaultConfig.versionName}_${buildType}.apk"
+                    }
+                    else -> {
+                    }
+                }
+            }
+        }
+    }
+}
+
+//整理资源文件
+fun listSubFile(): ArrayList<String> {
+    val resFolder = "src/main/res/layouts"
+
+    val files = file(resFolder).listFiles()
+    val folders = ArrayList<String>()
+
+    files?.let {
+        it.forEach { file ->
+            folders.add(file.absolutePath)
+        }
+    }
+
+    folders.add(file(resFolder).parentFile.absolutePath)
+    return folders
 }
 
 dependencies {
