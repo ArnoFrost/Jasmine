@@ -1,8 +1,17 @@
+package jasmine
+
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * <pre>
+ *     author: xuxin
+ *     time  : 2021/5/12
+ *     desc  : 配置相关
+ * </pre>
+ */
 object Deploy {
-    const val kotlinVersion = "1.3.72"
+    const val kotlinVersion = "1.4.31"
     const val gradleVersion = "4.2.0"
 
     const val pluginAndroidId = "com.android.application"
@@ -12,21 +21,8 @@ object Deploy {
     const val compileSdkVersion = 30
     const val buildToolsVersion = "30.0.3"
     const val minSdkVersion = 23
-
-    //note:target 版本过高有待确定?
-    const val targetSdkVersion = 30
+    const val targetSdkVersion = 30 //note:target 版本过高有待确定?
 
     const val jasmineVersionCode = 1
     const val jasmineVersionName = "1.0"
-
-    //依赖
-    //xxx
-
-
-
-    fun getSystemTime(): String {
-        val mSimpleDateFormat =
-            SimpleDateFormat("YYYY_MM_dd_HH_mm_ss", java.util.Locale.CHINA)
-        return mSimpleDateFormat.format(java.lang.System.currentTimeMillis())
-    }
 }
