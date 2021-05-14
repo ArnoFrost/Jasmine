@@ -1,7 +1,5 @@
 package jasmine
 
-import java.text.SimpleDateFormat
-
 /**
  * <pre>
  *     author: Arno
@@ -34,7 +32,7 @@ object Library {
     private const val LIFECYCLE_VERSION = "2.3.1"
     const val ANDROIDX_LIFECYCLE_COMMON =
         "androidx.lifecycle:lifecycle-common-java8:$LIFECYCLE_VERSION"
-    const val ANDROIDX_LIFECYCLE_RUNTIME = "androidx.lifecycle:lifecycle-runtime:$LIFECYCLE_VERSION"
+    const val ANDROIDX_LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:$LIFECYCLE_VERSION"
     const val ANDROIDX_LIFECYCLE_VIEW_MODEL =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_VERSION"
 

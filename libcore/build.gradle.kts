@@ -32,6 +32,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -45,6 +49,9 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_APPCOMPAT)
     implementation(jasmine.Library.MATERIAL)
     implementation(jasmine.Library.ANDROIDX_CONSTRAINT_LAYOUT)
+    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_COMMON)
+    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_LIVEDATA)
+    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
 
     //Test
     testImplementation(jasmine.Library.JUNIT)
