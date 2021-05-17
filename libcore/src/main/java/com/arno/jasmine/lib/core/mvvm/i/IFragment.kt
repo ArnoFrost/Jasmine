@@ -17,4 +17,6 @@ interface IFragment {
 
     fun initData()
 
+    fun lazyInit()
+
 }

@@ -41,8 +41,17 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel<BaseModel>> 
     }
 
     private fun initVM() {
+        JLog.i(javaClass.simpleName, "initVM")
         providerVMClass()?.let {
             mViewModel = ViewModelProvider(this).get(it)
         }
+    }
+
+    override fun initView() {
+        JLog.i(javaClass.simpleName, "initView")
+    }
+
+    override fun initData() {
+        JLog.i(javaClass.simpleName, "initData")
     }
 }

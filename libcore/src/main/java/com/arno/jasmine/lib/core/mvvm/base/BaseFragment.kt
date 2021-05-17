@@ -1,6 +1,5 @@
 package com.arno.jasmine.lib.core.mvvm.base
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,36 +10,30 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.arno.jasmine.lib.core.mvvm.i.IFragment
 import com.arno.jasmine.lib.core.mvvm.i.IView
+import com.arno.jasmine.lib.util.JLog
 
 /**
  * <pre>
  *     author: xuxin
  *     time  : 2021/5/17
- *     desc  : Fragment层
+ *     desc  : Fragment层 可通过懒加载控制,采用AndroidX的控制方法
+ *     外部通过[FragmentTransaction.setMaxLifecycle(Fragment, Lifecycle.State)]
  * </pre>
  */
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel<BaseModel>> :
     Fragment(),
     IView,
     IFragment {
-    protected lateinit var mContext: Context
     protected lateinit var mBinding: B
     protected lateinit var mViewModel: VM
     abstract fun providerVMClass(): Class<VM>?
 
     //数据是否加载标识
-    private var isDataInitiated = false
-
-    //view是否加载标识
-    private var isViewInitiated = false
-
-    //fragment是否显示
-    private var isVisibleToUser = false
+    private var isLoaded = false
 
     /**
      * 是否懒加载
-     * true:是
-     * false:不(默认)
+     *
      */
     protected open fun lazyLoad() = false
 
@@ -51,37 +44,19 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel<BaseModel>> 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mContext = activity ?: throw Exception("activity is null")
-        initVM()
-        initView()
-        //判断是否懒加载
-        if (lazyLoad()) {
-            //将view加载的标识设置为true
-            isViewInitiated = true
-            prepareData()
-        } else {
-            initData()
+        if (!lazyLoad()) {
+            initVM()
+            initView()
         }
     }
 
-    /**
-     * fragment是否显示当前界面
-     */
-    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
-        super.setUserVisibleHint(isVisibleToUser)
-        this.isVisibleToUser = isVisibleToUser
-        prepareData()
-    }
-
-    /**
-     * 懒加载的方法
-     */
-    private fun prepareData() {
-        //通过判断各种标识去进行数据加载
-        if (isVisibleToUser && isViewInitiated && !isDataInitiated) {
+    override fun onResume() {
+        super.onResume()
+        if (!isLoaded && !isHidden) {
+            lazyInit()
+            isLoaded = true
+        } else if (reLoad()) {
             initData()
-            if (reLoad()) return
-            isDataInitiated = true
         }
     }
 
@@ -95,9 +70,30 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel<BaseModel>> 
         return mBinding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        isLoaded = false
+    }
+
+    override fun lazyInit() {
+        initVM()
+        initView()
+        initData()
+    }
+
+
     private fun initVM() {
+        JLog.i(javaClass.simpleName, "initVM")
         providerVMClass()?.let {
             mViewModel = ViewModelProvider(this).get(it)
         }
+    }
+
+    override fun initView() {
+        JLog.i(javaClass.simpleName, "initView")
+    }
+
+    override fun initData() {
+        JLog.i(javaClass.simpleName, "initData")
     }
 }
