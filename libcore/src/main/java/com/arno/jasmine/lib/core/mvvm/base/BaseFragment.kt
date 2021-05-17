@@ -42,8 +42,8 @@ abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
      */
     protected open fun reLoad() = false
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         if (!lazyLoad()) {
             initVM()
             initView()

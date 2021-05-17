@@ -1,7 +1,6 @@
 package com.arno.jasmine.lib.net
 
 import com.arno.jasmine.lib.common.util.JLog
-import com.blankj.utilcode.util.Utils
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,11 +15,12 @@ import java.util.concurrent.TimeUnit
  * </pre>
  */
 class NetworkManager private constructor() : INetworkManager {
-    val TAG = "JNetworkManager"
+
     lateinit var mOkHttpClient: OkHttpClient
     lateinit var mRetrofit: Retrofit
 
     companion object {
+        private const val TAG = "JNetworkManager"
         val INSTANCE: NetworkManager by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
             NetworkManager()
         }
@@ -30,7 +30,7 @@ class NetworkManager private constructor() : INetworkManager {
             var loggingInterceptor: HttpLoggingInterceptor? = null
             if (hasLog) {
                 loggingInterceptor = HttpLoggingInterceptor { messages ->
-                    JLog.d("Http", "Message =$messages")
+                    JLog.d(TAG, "Message =$messages")
                 }
             }
 
