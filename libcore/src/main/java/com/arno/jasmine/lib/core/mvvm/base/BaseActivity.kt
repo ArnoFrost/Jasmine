@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import com.arno.jasmine.lib.core.mvvm.i.IActivity
 import com.arno.jasmine.lib.core.mvvm.i.IView
-import com.arno.jasmine.lib.util.JLog
+import com.arno.jasmine.lib.common.util.JLog
 
 /**
  * <pre>

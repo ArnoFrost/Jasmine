@@ -1,8 +1,8 @@
-package com.arno.jasmine
+package com.arno.jasmine.main
 
+import com.arno.jasmine.R
 import com.arno.jasmine.databinding.ActivityMainBinding
 import com.arno.jasmine.lib.core.mvvm.base.BaseActivity
-import com.arno.jasmine.main.MainViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun providerVMClass(): Class<MainViewModel> = MainViewModel::class.java

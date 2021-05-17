@@ -45,6 +45,10 @@ object Library {
     const val NET_RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT"
     const val NET_RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT"
 
+    //Util
+    private const val BLANKJ = "1.30.6"
+    const val UTIL_BLANKJ = "com.blankj:utilcodex:$BLANKJ"
+
     // TEST
     const val JUNIT = "junit:junit:4.13.2"
     const val KOTLINX_COROUTINES_TEST =

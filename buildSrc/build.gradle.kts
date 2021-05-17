@@ -5,6 +5,7 @@ plugins {
 repositories {
     google()
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 apply(from = "plugins.gradle.kts")

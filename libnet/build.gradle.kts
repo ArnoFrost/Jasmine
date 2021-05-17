@@ -13,7 +13,7 @@ android {
         versionCode = jasmine.Deploy.jasmineNetVersionCode
         versionName = jasmine.Deploy.jasmineNetVersionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = jasmine.Deploy.androidJunit
     }
 
     buildTypes {
@@ -40,6 +40,7 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(project(mapOf("path" to ":libcommon")))
 
     implementation(jasmine.Library.KOTLIN_LIB)
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)

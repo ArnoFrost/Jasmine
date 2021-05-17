@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io")
         gradlePluginPortal()
     }
     dependencies {
@@ -22,6 +23,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io")
     }
     // group = project.groupId
     // version = project.versionName

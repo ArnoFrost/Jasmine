@@ -2,7 +2,7 @@ package com.arno.jasmine.lib.core.mvvm.base
 
 import androidx.lifecycle.ViewModel
 import com.arno.jasmine.lib.core.mvvm.i.IViewModel
-import com.arno.jasmine.lib.util.JLog
+import com.arno.jasmine.lib.common.util.JLog
 
 /***
  *

@@ -4,3 +4,4 @@ rootProject.apply {
     buildFileName = "build.gradle.kts"
 }
 include(":libnet")
+include(":libcommon")

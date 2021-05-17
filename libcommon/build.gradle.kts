@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion(jasmine.Deploy.minSdkVersion)
         targetSdkVersion(jasmine.Deploy.targetSdkVersion)
-        versionCode = jasmine.Deploy.jasmineCoreVersionCode
-        versionName = jasmine.Deploy.jasmineCoreVersionName
+        versionCode = jasmine.Deploy.jasmineCommonVersionCode
+        versionName = jasmine.Deploy.jasmineCommonVersionName
 
         testInstrumentationRunner = jasmine.Deploy.androidJunit
     }
@@ -40,25 +40,10 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(project(mapOf("path" to ":libcommon")))
 
     implementation(jasmine.Library.KOTLIN_LIB)
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
-
-    implementation(jasmine.Library.ANDROIDX_CORE)
-    implementation(jasmine.Library.ANDROIDX_APPCOMPAT)
-    implementation(jasmine.Library.MATERIAL)
-    implementation(jasmine.Library.ANDROIDX_CONSTRAINT_LAYOUT)
-    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_COMMON)
-    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_LIVEDATA)
-    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
-
-    //Test
-    testImplementation(jasmine.Library.JUNIT)
-    androidTestImplementation(jasmine.Library.ANDROIDX_TEST_CORE)
-    androidTestImplementation(jasmine.Library.ANDROIDX_TEST_JUNIT)
-    androidTestImplementation(jasmine.Library.ANDROIDX_TEST_RULES)
-    androidTestImplementation(jasmine.Library.ANDROIDX_TEST_RUNNER)
+    api(jasmine.Library.UTIL_BLANKJ)
 
 }
