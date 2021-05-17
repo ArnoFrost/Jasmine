@@ -56,6 +56,10 @@ android {
             }
         }
     }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 //整理资源文件

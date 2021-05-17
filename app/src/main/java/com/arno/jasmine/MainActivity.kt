@@ -1,11 +1,16 @@
 package com.arno.jasmine
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.arno.jasmine.databinding.ActivityMainBinding
+import com.arno.jasmine.lib.core.mvvm.base.BaseActivity
+import com.arno.jasmine.main.MainViewModel
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
+    override fun providerVMClass(): Class<MainViewModel> = MainViewModel::class.java
+
+    override fun getLayoutId() = R.layout.activity_main
+
+    override fun initData() {
+        super.initData()
+        mBinding.welcome.text = getString(R.string.test_welcome)
     }
 }

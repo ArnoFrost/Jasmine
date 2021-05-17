@@ -10,8 +10,8 @@ import com.arno.jasmine.lib.util.JLog
  * ViewModel 层
  */
 
-abstract class BaseViewModel<M : BaseModel> : ViewModel(), IViewModel {
-    abstract var mModel: M?
+abstract class BaseViewModel<out M : BaseModel> : ViewModel(), IViewModel {
+    abstract var mModel: @UnsafeVariance M?
 
     init {
         doOnInit()

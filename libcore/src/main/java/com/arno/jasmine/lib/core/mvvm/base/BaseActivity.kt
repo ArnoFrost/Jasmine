@@ -16,13 +16,13 @@ import com.arno.jasmine.lib.util.JLog
  *     desc  : View层
  * </pre>
  */
-abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel<BaseModel>> :
+abstract class BaseActivity<out B : ViewDataBinding, out VM : BaseViewModel<BaseModel>> :
     AppCompatActivity(),
     IView,
     IActivity {
-    protected lateinit var mBinding: B
-    protected lateinit var mViewModel: VM
-    abstract fun providerVMClass(): Class<VM>?
+    protected lateinit var mBinding: @UnsafeVariance B
+    protected lateinit var mViewModel: @UnsafeVariance VM
+    abstract fun providerVMClass(): Class<@UnsafeVariance VM>?
 
     override fun onCreate(savedInstanceState: Bundle?) {
         JLog.i(javaClass.simpleName, "onCreate")
