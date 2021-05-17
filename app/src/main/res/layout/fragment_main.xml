@@ -4,18 +4,17 @@
 
     <data>
 
-        <import type="com.arno.jasmine.activity.main.MainViewModel" />
-
-        <variable
-            name="mViewModel"
-            type="MainViewModel" />
     </data>
 
     <FrameLayout
-        android:id="@+id/main_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.main.MainActivity">
+        tools:context=".fragment.main.MainFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment" />
 
     </FrameLayout>
 </layout>

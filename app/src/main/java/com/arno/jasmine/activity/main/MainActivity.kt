@@ -1,7 +1,9 @@
-package com.arno.jasmine.main
+package com.arno.jasmine.activity.main
 
+import androidx.fragment.app.commitNow
 import com.arno.jasmine.R
 import com.arno.jasmine.databinding.ActivityMainBinding
+import com.arno.jasmine.fragment.main.MainFragment
 import com.arno.jasmine.lib.core.mvvm.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
@@ -12,8 +14,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun initView() {
         super.initView()
         mBinding.mViewModel = mViewModel
-        mBinding.btnRequestTitle.setOnClickListener {
-            mViewModel.requestTitle()
+        supportFragmentManager.commitNow {
+            add(MainFragment.newInstance(), "MainFragment")
         }
     }
 }

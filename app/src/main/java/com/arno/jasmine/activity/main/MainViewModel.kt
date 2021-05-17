@@ -1,4 +1,4 @@
-package com.arno.jasmine.main
+package com.arno.jasmine.activity.main
 
 import androidx.lifecycle.MutableLiveData
 import com.arno.jasmine.lib.core.mvvm.base.BaseViewModel

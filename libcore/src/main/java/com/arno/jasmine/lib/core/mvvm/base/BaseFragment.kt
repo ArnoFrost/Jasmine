@@ -8,9 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.arno.jasmine.lib.common.util.JLog
 import com.arno.jasmine.lib.core.mvvm.i.IFragment
 import com.arno.jasmine.lib.core.mvvm.i.IView
-import com.arno.jasmine.lib.common.util.JLog
 
 /**
  * <pre>

@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("kotlin-android")
 }
 
 android {
@@ -93,6 +94,10 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_APPCOMPAT)
     implementation(jasmine.Library.MATERIAL)
     implementation(jasmine.Library.ANDROIDX_CONSTRAINT_LAYOUT)
+    implementation(jasmine.Library.ANDROIDX_PAGING3)
+    implementation(jasmine.Library.ANDROIDX_ACTIVITY)
+    implementation(jasmine.Library.ANDROIDX_FRAGMENT)
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     //Test
     testImplementation(jasmine.Library.JUNIT)

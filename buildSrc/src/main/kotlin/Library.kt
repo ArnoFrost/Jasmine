@@ -23,7 +23,9 @@ object Library {
     const val ANDROIDX_COLLECTION = "androidx.collection:collection-ktx:1.1.0"
     const val ANDROIDX_CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:2.0.4"
     const val ANDROIDX_CORE = "androidx.core:core-ktx:1.3.2"
+    const val ANDROIDX_FRAGMENT = "androidx.fragment:fragment-ktx:1.3.3"
     const val ANDROIDX_MULTIDEX = "androidx.multidex:multidex:2.0.1"
+    const val ANDROIDX_PAGING3 = "androidx.paging:paging-runtime:3.0.0"
     const val ANDROIDX_RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.2.0"
 
     private const val LIFECYCLE_VERSION = "2.3.1"

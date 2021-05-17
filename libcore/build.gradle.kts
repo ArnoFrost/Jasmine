@@ -46,10 +46,10 @@ dependencies {
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
 
-    implementation(jasmine.Library.ANDROIDX_CORE)
+    implementation(jasmine.Library.ANDROIDX_ACTIVITY)
     implementation(jasmine.Library.ANDROIDX_APPCOMPAT)
-    implementation(jasmine.Library.MATERIAL)
     implementation(jasmine.Library.ANDROIDX_CONSTRAINT_LAYOUT)
+    implementation(jasmine.Library.ANDROIDX_FRAGMENT)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_COMMON)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_LIVEDATA)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
