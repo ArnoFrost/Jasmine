@@ -1,8 +1,5 @@
 package jasmine
 
-import java.text.SimpleDateFormat
-import java.util.*
-
 /**
  * <pre>
  *     author: xuxin
@@ -23,6 +20,12 @@ object Deploy {
     const val minSdkVersion = 23
     const val targetSdkVersion = 30 //note:target 版本过高有待确定?
 
-    const val jasmineVersionCode = 1
-    const val jasmineVersionName = "1.0"
+    const val jasmineAppVersionCode = 1
+    const val jasmineAppVersionName = "1.0-Beta"
+
+    const val jasmineCoreVersionCode = 1
+    const val jasmineCoreVersionName = "1.0-Beta"
+
+    const val jasmineNetVersionCode = 1
+    const val jasmineNetVersionName = "1.0-Beta"
 }

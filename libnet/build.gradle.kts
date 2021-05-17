@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion(jasmine.Deploy.minSdkVersion)
         targetSdkVersion(jasmine.Deploy.targetSdkVersion)
-        versionCode = jasmine.Deploy.jasmineCoreVersionCode
-        versionName = jasmine.Deploy.jasmineCoreVersionName
+        versionCode = jasmine.Deploy.jasmineNetVersionCode
+        versionName = jasmine.Deploy.jasmineNetVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,14 +44,11 @@ dependencies {
     implementation(jasmine.Library.KOTLIN_LIB)
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
-
-    implementation(jasmine.Library.ANDROIDX_CORE)
-    implementation(jasmine.Library.ANDROIDX_APPCOMPAT)
-    implementation(jasmine.Library.MATERIAL)
-    implementation(jasmine.Library.ANDROIDX_CONSTRAINT_LAYOUT)
-    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_COMMON)
-    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_LIVEDATA)
-    implementation(jasmine.Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
+    //NET
+    api(jasmine.Library.NET_OKHTTP)
+    api(jasmine.Library.NET_OKHTTP_LOG)
+    api(jasmine.Library.NET_RETROFIT)
+    api(jasmine.Library.NET_RETROFIT_GSON)
 
     //Test
     testImplementation(jasmine.Library.JUNIT)

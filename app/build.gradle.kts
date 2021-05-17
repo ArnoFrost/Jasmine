@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion(jasmine.Deploy.minSdkVersion)
         targetSdkVersion(jasmine.Deploy.targetSdkVersion)
-        versionCode = jasmine.Deploy.jasmineVersionCode
-        versionName = jasmine.Deploy.jasmineVersionName
+        versionCode = jasmine.Deploy.jasmineAppVersionCode
+        versionName = jasmine.Deploy.jasmineAppVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -81,7 +81,9 @@ fun listSubFile(): ArrayList<String> {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
+    implementation(project(mapOf("path" to ":libcore")))
+    implementation(project(mapOf("path" to ":libnet")))
+    
     implementation(jasmine.Library.KOTLIN_LIB)
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
@@ -91,7 +93,6 @@ dependencies {
     implementation(jasmine.Library.MATERIAL)
     implementation(jasmine.Library.ANDROIDX_CONSTRAINT_LAYOUT)
 
-    implementation(project(mapOf("path" to ":libcore")))
     //Test
     testImplementation(jasmine.Library.JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_CORE)

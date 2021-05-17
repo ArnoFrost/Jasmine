@@ -20,13 +20,13 @@ import com.arno.jasmine.lib.util.JLog
  *     外部通过[FragmentTransaction.setMaxLifecycle(Fragment, Lifecycle.State)]
  * </pre>
  */
-abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel<BaseModel>> :
+abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseModel>> :
     Fragment(),
     IView,
     IFragment {
     protected lateinit var mBinding: B
-    protected lateinit var mViewModel: VM
-    abstract fun providerVMClass(): Class<VM>?
+    protected lateinit var mViewModel: @UnsafeVariance VM
+    abstract fun providerVMClass(): Class<@UnsafeVariance VM>?
 
     //数据是否加载标识
     private var isLoaded = false

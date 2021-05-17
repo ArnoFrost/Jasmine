@@ -23,21 +23,27 @@ object Library {
     const val ANDROIDX_COLLECTION = "androidx.collection:collection-ktx:1.1.0"
     const val ANDROIDX_CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:2.0.4"
     const val ANDROIDX_CORE = "androidx.core:core-ktx:1.3.2"
-    const val ANDROIDX_EXIF_INTERFACE = "androidx.exifinterface:exifinterface:1.3.2"
     const val ANDROIDX_MULTIDEX = "androidx.multidex:multidex:2.0.1"
     const val ANDROIDX_RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.2.0"
-    const val ANDROIDX_VECTOR_DRAWABLE_ANIMATED =
-        "androidx.vectordrawable:vectordrawable-animated:1.1.0"
 
     private const val LIFECYCLE_VERSION = "2.3.1"
     const val ANDROIDX_LIFECYCLE_COMMON =
         "androidx.lifecycle:lifecycle-common-java8:$LIFECYCLE_VERSION"
-    const val ANDROIDX_LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:$LIFECYCLE_VERSION"
+    const val ANDROIDX_LIFECYCLE_LIVEDATA =
+        "androidx.lifecycle:lifecycle-livedata-ktx:$LIFECYCLE_VERSION"
     const val ANDROIDX_LIFECYCLE_VIEW_MODEL =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_VERSION"
 
     const val MATERIAL = "com.google.android.material:material:1.3.0"
 
+    //Net
+    private const val OKHTTP = "4.9.1"
+    const val NET_OKHTTP = "com.squareup.okhttp3:okhttp:$OKHTTP"
+    const val NET_OKHTTP_LOG = "com.squareup.okhttp3:logging-interceptor:3.5.0"
+
+    private const val RETROFIT = "2.9.0"
+    const val NET_RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT"
+    const val NET_RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT"
 
     // TEST
     const val JUNIT = "junit:junit:4.13.2"
