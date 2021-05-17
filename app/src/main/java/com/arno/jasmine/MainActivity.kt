@@ -9,8 +9,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun getLayoutId() = R.layout.activity_main
 
-    override fun initData() {
-        super.initData()
-        mBinding.welcome.text = getString(R.string.test_welcome)
+    override fun initView() {
+        super.initView()
+        mBinding.mViewModel = mViewModel
+        mBinding.btnRequestTitle.setOnClickListener {
+            mViewModel.requestTitle()
+        }
     }
 }

@@ -10,6 +10,12 @@ import com.arno.jasmine.lib.core.mvvm.base.BaseModel
  * </pre>
  */
 class MainModel : BaseModel() {
+    var title: String? = ""
+
+    fun updateTitle() {
+        title = "This is request title ${System.currentTimeMillis()}"
+    }
+
     override fun released() {
 
     }

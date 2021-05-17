@@ -1,5 +1,6 @@
 package com.arno.jasmine.main
 
+import androidx.lifecycle.MutableLiveData
 import com.arno.jasmine.lib.core.mvvm.base.BaseViewModel
 
 /**
@@ -10,8 +11,16 @@ import com.arno.jasmine.lib.core.mvvm.base.BaseViewModel
  * </pre>
  */
 class MainViewModel : BaseViewModel<MainModel>() {
-    override var mModel: MainModel?
-        get() = null
-        set(value) {}
+    override var mModel: MainModel? = MainModel()
+    val mTitle: MutableLiveData<String> = MutableLiveData("Welcome to Jasmine~")
+
+    fun requestTitle() {
+        mModel?.let {
+            it.updateTitle()
+            mTitle.postValue(it.title)
+            mTitle.value
+        }
+
+    }
 
 }
