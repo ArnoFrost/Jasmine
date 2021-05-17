@@ -13,10 +13,10 @@ import com.arno.jasmine.lib.util.JLog
  * <pre>
  *     author: xuxin
  *     time  : 2021/5/14
- *     desc  :
+ *     desc  : View层
  * </pre>
  */
-abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel> :
+abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel<BaseModel>> :
     AppCompatActivity(),
     IView,
     IActivity {
