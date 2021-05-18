@@ -15,7 +15,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         super.initView()
         mBinding.mViewModel = mViewModel
         supportFragmentManager.commitNow {
-            add(MainFragment.newInstance(), "MainFragment")
+            add(R.id.main_root, MainFragment.newInstance(), "MainFragment")
         }
     }
 }
