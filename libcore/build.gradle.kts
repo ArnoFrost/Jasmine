@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -53,7 +55,10 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_COMMON)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_LIVEDATA)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
-
+    implementation(jasmine.Library.ANDROIDX_HILT)
+    kapt(jasmine.Library.ANDROIDX_HILT_COMPILER)
+    implementation(jasmine.Library.ANDROIDX_ROOM)
+    kapt(jasmine.Library.ANDROIDX_ROOM_COMPILER)
     //Test
     testImplementation(jasmine.Library.JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_CORE)

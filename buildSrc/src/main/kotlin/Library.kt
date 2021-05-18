@@ -46,6 +46,13 @@ object Library {
     const val ANDROIDX_HILT_COMPILER =
         "com.google.dagger:hilt-android-compiler:$HILT_VERSION"
 
+    //ROOM
+    private const val ROOM_VERSION = "2.3.0"
+    const val ANDROIDX_ROOM =
+        "androidx.room:room-runtime:$ROOM_VERSION"
+    const val ANDROIDX_ROOM_COMPILER =
+        "androidx.room:room-compiler:$ROOM_VERSION"
+
     //Net
     private const val OKHTTP = "4.9.1"
     const val NET_OKHTTP = "com.squareup.okhttp3:okhttp:$OKHTTP"
