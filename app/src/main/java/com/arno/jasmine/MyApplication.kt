@@ -3,6 +3,7 @@ package com.arno.jasmine
 import android.app.Application
 import com.arno.jasmine.lib.net.NetworkManager
 import com.blankj.utilcode.util.Utils
+import dagger.hilt.android.HiltAndroidApp
 
 /**
  * <pre>
@@ -11,6 +12,7 @@ import com.blankj.utilcode.util.Utils
  *     desc  : JasmineApplication
  * </pre>
  */
+@HiltAndroidApp
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
