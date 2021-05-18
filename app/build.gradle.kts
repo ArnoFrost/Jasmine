@@ -1,7 +1,8 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("kotlin-android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -45,11 +46,11 @@ android {
                 when (buildType) {
                     "debug" -> {
                         this.outputFileName =
-                            "Jasmine_DSL_v${defaultConfig.versionName}_${buildType}.apk"
+                            "Jasmine_DSL_v${defaultConfig.versionName}_${buildType}_${jasmine.Util.getSystemTime()}.apk"
                     }
                     "release" -> {
                         this.outputFileName =
-                            "Jasmine_v${defaultConfig.versionName}_${buildType}.apk"
+                            "Jasmine_v${defaultConfig.versionName}_${buildType}_${jasmine.Util.getSystemTime()}.apk"
                     }
                     else -> {
                     }
@@ -97,8 +98,8 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_PAGING3)
     implementation(jasmine.Library.ANDROIDX_ACTIVITY)
     implementation(jasmine.Library.ANDROIDX_FRAGMENT)
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-
+    implementation(jasmine.Library.ANDROIDX_HILT)
+    kapt(jasmine.Library.ANDROIDX_HILT_COMPILER)
     //Test
     testImplementation(jasmine.Library.JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_CORE)

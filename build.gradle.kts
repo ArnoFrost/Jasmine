@@ -10,8 +10,8 @@ buildscript {
     dependencies {
         classpath(rootProject.extra["androidPlugin"].toString())
         classpath(rootProject.extra["kotlinPlugin"].toString())
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.0")
-        // classpath(rootProject.extra["ktlintPlugin"].toString())
+        classpath(rootProject.extra["hiltPlugin"].toString())
+        // classpath(rootProject.extra["ktLintPlugin"].toString())
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         //TODO MavenPublish plugin?
