@@ -1,5 +1,11 @@
 package com.arno.jasmine.lib.core.mvvm.i
 
-interface IModel {
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
+
+
+interface IModel : LifecycleObserver {
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun released()
 }

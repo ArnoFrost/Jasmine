@@ -84,7 +84,6 @@ fun listSubFile(): ArrayList<String> {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(mapOf("path" to ":libcore")))
-    implementation(project(mapOf("path" to ":libnet")))
     implementation(project(mapOf("path" to ":libcommon")))
 
     implementation(jasmine.Library.KOTLIN_LIB)

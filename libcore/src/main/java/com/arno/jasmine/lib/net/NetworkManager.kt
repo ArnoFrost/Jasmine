@@ -1,6 +1,7 @@
 package com.arno.jasmine.lib.net
 
 import com.arno.jasmine.lib.common.util.JLog
+import com.arno.jasmine.lib.core.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -30,7 +31,7 @@ class NetworkManager private constructor() : INetworkManager {
             var loggingInterceptor: HttpLoggingInterceptor? = null
             if (hasLog) {
                 loggingInterceptor = HttpLoggingInterceptor { messages ->
-                    JLog.d(TAG, "Message =$messages")
+                    JLog.d(TAG, "Http Message =$messages")
                 }
             }
 

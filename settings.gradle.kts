@@ -1,7 +1,7 @@
-include(":app", ":libcore")
+include(":app")
 rootProject.apply {
     name = "Jasmine"
     buildFileName = "build.gradle.kts"
 }
-include(":libnet")
+include(":libcore")
 include(":libcommon")
