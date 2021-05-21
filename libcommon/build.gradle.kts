@@ -1,8 +1,6 @@
 plugins {
     id("com.android.library")
     kotlin("android")
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -47,7 +45,5 @@ dependencies {
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
     api(jasmine.Library.UTIL_BLANKJ)
-    implementation(jasmine.Library.ANDROIDX_HILT)
-    kapt(jasmine.Library.ANDROIDX_HILT_COMPILER)
 
 }

@@ -1,6 +1,7 @@
 package com.arno.jasmine.fragment.main
 
 import com.arno.jasmine.lib.core.mvvm.base.BaseViewModel
+import org.koin.java.KoinJavaComponent.inject
 
 /**
  * <pre>
@@ -10,5 +11,5 @@ import com.arno.jasmine.lib.core.mvvm.base.BaseViewModel
  * </pre>
  */
 class MainFragmentViewModel : BaseViewModel<MainFragmentModel>() {
-    override var mModel: MainFragmentModel? = MainFragmentModel()
+    override val mModel: MainFragmentModel? by inject(MainFragmentModel::class.java)
 }

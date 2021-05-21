@@ -5,13 +5,11 @@ import android.content.Context
 import androidx.collection.LruCache
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.arno.jasmine.lib.common.util.Preconditions
 import com.arno.jasmine.lib.config.Constants
 import com.arno.jasmine.lib.config.JAppliesOptions
-import dagger.Lazy
+import com.arno.jasmine.lib.util.Preconditions
+import org.koin.java.KoinJavaComponent.inject
 import retrofit2.Retrofit
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * <pre>
@@ -20,23 +18,13 @@ import javax.inject.Singleton
  *     desc  :
  * </pre>
  */
-@Singleton
 class DataRepository : IDataRepository {
 
-    @Inject
-    constructor()
+    val mRetrofit: Retrofit by inject(Retrofit::class.java)
 
-    @JvmField
-    @Inject
-    var mRetrofit: Lazy<Retrofit>? = null
+    val mApplication: Application? by inject(Application::class.java)
 
-    @JvmField
-    @Inject
-    var mApplication: Application? = null
-
-    @JvmField
-    @Inject
-    var mRoomDatabaseOptions: JAppliesOptions.RoomDatabaseOptions? = null
+    val mRoomDatabaseOptions: JAppliesOptions.RoomDatabaseOptions by inject(JAppliesOptions.RoomDatabaseOptions::class.java)
 
     /**
      * 缓存 Retrofit Service
@@ -53,8 +41,8 @@ class DataRepository : IDataRepository {
      * 提供上下文[Context]
      * @return [.mApplication]
      */
-    override fun getContext(): Context {
-        return mApplication!!
+    override fun getContext(): Context? {
+        return mApplication
     }
 
     /**
@@ -64,7 +52,7 @@ class DataRepository : IDataRepository {
      * @return [retrofit2.Retrofit.create]
     </T> */
     @Throws(Exception::class)
-    override fun <T> getRetrofitService(service: Class<T>): T {
+    override fun <T> getRetrofitService(service: Class<T>): T? {
         if (mRetrofitServiceCache == null) {
             mRetrofitServiceCache = LruCache(Constants.DEFAULT_RETROFIT_SERVICE_MAX_SIZE)
         }
@@ -76,17 +64,17 @@ class DataRepository : IDataRepository {
                 if (retrofitService == null) {
                     synchronized(serviceCache) {
                         if (retrofitService == null) {
-                            retrofitService = mRetrofit?.get()?.create(service)
+                            retrofitService = mRetrofit.create(service)
                             Preconditions.checkNotNull(retrofitService)
                             //缓存
                             serviceCache.put(canonicalName, retrofitService!!)
                         }
                     }
                 }
-                return retrofitService ?: throw Exception("getRetrofitService null")
+                return retrofitService
             }
         }
-        throw Exception("getRetrofitService null")
+        return null
     }
 
     /**
@@ -98,7 +86,7 @@ class DataRepository : IDataRepository {
      */
     @Throws(Exception::class)
     @Suppress("UNCHECKED_CAST")
-    override fun <T : RoomDatabase> getRoomDatabase(database: Class<T>, dbName: String?): T {
+    override fun <T : RoomDatabase> getRoomDatabase(database: Class<T>, dbName: String?): T? {
         if (mRoomDatabaseCache == null) {
             mRoomDatabaseCache = LruCache(Constants.DEFAULT_ROOM_DATABASE_MAX_SIZE)
         }
@@ -109,19 +97,21 @@ class DataRepository : IDataRepository {
                 var roomDatabase: T? = (databaseCache[canonicalName] as? T)
                 synchronized(databaseCache) {
                     if (roomDatabase == null) {
-                        val builder: RoomDatabase.Builder<T> =
-                            Room.databaseBuilder(getContext().applicationContext,
-                                database,
-                                dbName ?: Constants.DEFAULT_DATABASE_NAME)
-                        mRoomDatabaseOptions?.applyOptions(builder = builder)
-                        roomDatabase = builder.build()?.apply {
-                            databaseCache.put(canonicalName, this)
+                        mApplication?.let { application ->
+                            val builder: RoomDatabase.Builder<T> =
+                                Room.databaseBuilder(application,
+                                    database,
+                                    dbName ?: Constants.DEFAULT_DATABASE_NAME)
+                            mRoomDatabaseOptions.applyOptions(builder)
+                            roomDatabase = builder.build().apply {
+                                databaseCache.put(canonicalName, this)
+                            }
                         }
                     }
                 }
-                return roomDatabase ?: throw Exception("getRoomDatabase is null")
+                return roomDatabase
             }
         }
-        throw Exception("getRoomDatabase is null")
+        return null
     }
 }

@@ -1,8 +1,6 @@
 package com.arno.jasmine.activity.main
 
 import com.arno.jasmine.lib.core.mvvm.base.BaseModel
-import com.arno.jasmine.lib.data.IDataRepository
-import javax.inject.Inject
 
 /**
  * <pre>
@@ -11,7 +9,7 @@ import javax.inject.Inject
  *     desc  :
  * </pre>
  */
-class MainModel @Inject constructor(mDataRepository: IDataRepository?) :
+class MainModel(mDataRepository: MainRepository) :
     BaseModel(mDataRepository) {
     var title: String? = ""
 

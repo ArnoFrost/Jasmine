@@ -1,5 +1,6 @@
 package com.arno.jasmine.fragment.main
 
+import com.arno.jasmine.activity.main.MainRepository
 import com.arno.jasmine.lib.core.mvvm.base.BaseModel
 
 /**
@@ -9,7 +10,8 @@ import com.arno.jasmine.lib.core.mvvm.base.BaseModel
  *     desc  :
  * </pre>
  */
-class MainFragmentModel: BaseModel() {
+class MainFragmentModel(mDataRepository: MainRepository) :
+    BaseModel(mDataRepository) {
     override fun released() {
 
     }

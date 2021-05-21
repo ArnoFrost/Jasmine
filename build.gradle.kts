@@ -10,7 +10,8 @@ buildscript {
     dependencies {
         classpath(rootProject.extra["androidPlugin"].toString())
         classpath(rootProject.extra["kotlinPlugin"].toString())
-        classpath(rootProject.extra["hiltPlugin"].toString())
+        // classpath(rootProject.extra["koinPlugin"].toString())
+        // classpath(rootProject.extra["hiltPlugin"].toString())
         // classpath(rootProject.extra["ktLintPlugin"].toString())
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

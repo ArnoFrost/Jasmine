@@ -1,9 +1,15 @@
 package com.arno.jasmine
 
 import android.app.Application
+import com.arno.jasmine.di.mainModule
+import com.arno.jasmine.lib.di.coreModule
+import com.arno.jasmine.lib.di.netModule
+import com.arno.jasmine.lib.di.optionModule
+import com.arno.jasmine.lib.di.repositoryModule
 import com.arno.jasmine.lib.net.NetworkManager
 import com.blankj.utilcode.util.Utils
-import dagger.hilt.android.HiltAndroidApp
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.GlobalContext.startKoin
 
 /**
  * <pre>
@@ -12,12 +18,24 @@ import dagger.hilt.android.HiltAndroidApp
  *     desc  : JasmineApplication
  * </pre>
  */
-@HiltAndroidApp
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        initDi()
         initUtil()
         initNetwork()
+    }
+
+    private fun initDi() {
+        startKoin {
+            androidContext(this@MyApplication)
+            modules(mainModule)
+            modules(optionModule)
+            modules(coreModule)
+            modules(netModule)
+            modules(repositoryModule)
+
+        }
     }
 
     private fun initUtil() {

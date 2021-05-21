@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -97,12 +96,22 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_PAGING3)
     implementation(jasmine.Library.ANDROIDX_ACTIVITY)
     implementation(jasmine.Library.ANDROIDX_FRAGMENT)
-    implementation(jasmine.Library.ANDROIDX_HILT)
-    kapt(jasmine.Library.ANDROIDX_HILT_COMPILER)
+
+    //DI
+    implementation(jasmine.Library.KOIN_CORE)
+    implementation(jasmine.Library.KOIN_ANDROID)
+    implementation(jasmine.Library.KOIN_ANDROID_EXT)
+
+    //DATA
+    implementation(jasmine.Library.ANDROIDX_ROOM)
+    kapt(jasmine.Library.ANDROIDX_ROOM_COMPILER)
+
     //Test
     testImplementation(jasmine.Library.JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_CORE)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_RULES)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_RUNNER)
+
+
 }

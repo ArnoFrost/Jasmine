@@ -2,7 +2,6 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
-    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -55,9 +54,11 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_COMMON)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_LIVEDATA)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
+
     //DI
-    implementation(jasmine.Library.ANDROIDX_HILT)
-    kapt(jasmine.Library.ANDROIDX_HILT_COMPILER)
+    api(jasmine.Library.KOIN_CORE)
+    api(jasmine.Library.KOIN_ANDROID)
+    api(jasmine.Library.KOIN_ANDROID_EXT)
 
 
     //NET
@@ -67,7 +68,7 @@ dependencies {
     api(jasmine.Library.NET_RETROFIT_GSON)
 
     //DATA
-    implementation(jasmine.Library.ANDROIDX_ROOM)
+    api(jasmine.Library.ANDROIDX_ROOM)
     kapt(jasmine.Library.ANDROIDX_ROOM_COMPILER)
 
     //Test

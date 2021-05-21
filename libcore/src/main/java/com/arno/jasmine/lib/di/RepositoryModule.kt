@@ -1,11 +1,8 @@
 package com.arno.jasmine.lib.di
 
 import com.arno.jasmine.lib.data.DataRepository
-import com.arno.jasmine.lib.data.IDataRepository
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import org.koin.dsl.bind
+import org.koin.dsl.module
 
 /**
  * <pre>
@@ -14,9 +11,6 @@ import dagger.hilt.components.SingletonComponent
  *     desc  :
  * </pre>
  */
-@InstallIn(SingletonComponent::class)
-@Module
-abstract class RepositoryModule {
-    @Binds
-    abstract fun bindDataRepository(dataRepository: DataRepository): IDataRepository
+val repositoryModule = module {
+    factory { DataRepository() } bind DataRepository::class
 }

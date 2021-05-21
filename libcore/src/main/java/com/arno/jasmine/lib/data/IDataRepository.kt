@@ -23,7 +23,7 @@ interface IDataRepository {
      * @param <T>
      * @return [retrofit2.Retrofit.create]
      */
-    fun <T> getRetrofitService(service: Class<T>): T
+    fun <T> getRetrofitService(service: Class<T>): T?
 
     /**
      * 传入Class 通过[androidx.room.Room.databaseBuilder],[#build()][<]获得对应的Class
@@ -32,6 +32,6 @@ interface IDataRepository {
      * @param <T>
      * @return [androidx.room.RoomDatabase.Builder.build]
      */
-    fun <T : RoomDatabase> getRoomDatabase(database: Class<T>, dbName: String?): T
+    fun <T : RoomDatabase> getRoomDatabase(database: Class<T>, dbName: String?): T?
 
 }

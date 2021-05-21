@@ -11,7 +11,7 @@ import com.arno.jasmine.lib.common.util.JLog
  */
 
 abstract class BaseViewModel<out M : BaseModel> : ViewModel(), IViewModel {
-    abstract var mModel: @UnsafeVariance M?
+    abstract val mModel: @UnsafeVariance M?
 
     init {
         doOnInit()

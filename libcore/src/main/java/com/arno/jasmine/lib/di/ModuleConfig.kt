@@ -1,13 +1,8 @@
 package com.arno.jasmine.lib.di
 
 import com.arno.jasmine.lib.config.JAppliesOptions
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
-import javax.inject.Singleton
 
 /**
  * <pre>
@@ -16,34 +11,7 @@ import javax.inject.Singleton
  *     desc  : 配置依赖注入能力
  * </pre>
  */
-@InstallIn(SingletonComponent::class)
-@Module
 class ModuleConfig {
-    @Throws(Exception::class)
-    @Singleton
-    @Provides
-    fun provideBaseUrl(builder: Builder): HttpUrl? {
-        return builder.baseUrl
-    }
-
-    @Singleton
-    @Provides
-    fun provideRetrofitOptions(builder: Builder): JAppliesOptions.RetrofitOptions? {
-        return builder.retrofitOptions
-    }
-
-    @Singleton
-    @Provides
-    fun provideOkHttpClientOptions(builder: Builder): JAppliesOptions.OkHttpClientOptions? {
-        return builder.okHttpClientOptions
-    }
-
-    @Singleton
-    @Provides
-    fun provideRoomDatabaseOptions(builder: Builder): JAppliesOptions.RoomDatabaseOptions? {
-        return builder.roomDatabaseOptions
-    }
-
 
     class Builder {
         internal var baseUrl: HttpUrl? = null

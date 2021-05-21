@@ -4,7 +4,6 @@ import androidx.room.RoomDatabase
 import com.arno.jasmine.lib.config.Constants
 import com.arno.jasmine.lib.core.mvvm.i.IModel
 import com.arno.jasmine.lib.data.IDataRepository
-import javax.inject.Inject
 
 /**
  * <pre>
@@ -13,7 +12,7 @@ import javax.inject.Inject
  *     desc  : Model层 加入网络和数据库接口
  * </pre>
  */
-class BaseModel @Inject constructor(var mDataRepository: IDataRepository?) : IModel {
+open class BaseModel(var mDataRepository: IDataRepository?) : IModel {
 
     override fun released() {
         mDataRepository = null
@@ -25,8 +24,8 @@ class BaseModel @Inject constructor(var mDataRepository: IDataRepository?) : IMo
      * @param
      * @return [retrofit2.Retrofit.create]
      */
-    open fun <T> getRetrofitService(service: Class<T>): T {
-        return mDataRepository!!.getRetrofitService(service)
+    open fun <T> getRetrofitService(service: Class<T>): T? {
+        return mDataRepository?.getRetrofitService(service)
     }
 
 

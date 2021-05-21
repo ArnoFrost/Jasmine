@@ -2,6 +2,7 @@ package com.arno.jasmine.activity.main
 
 import androidx.lifecycle.MutableLiveData
 import com.arno.jasmine.lib.core.mvvm.base.BaseViewModel
+import org.koin.java.KoinJavaComponent.inject
 
 /**
  * <pre>
@@ -11,7 +12,7 @@ import com.arno.jasmine.lib.core.mvvm.base.BaseViewModel
  * </pre>
  */
 class MainViewModel : BaseViewModel<MainModel>() {
-    override var mModel: MainModel? = MainModel()
+    override val mModel: MainModel? by inject(MainModel::class.java)
     val mTitle: MutableLiveData<String> = MutableLiveData("Welcome to Jasmine~")
 
     fun requestTitle() {
