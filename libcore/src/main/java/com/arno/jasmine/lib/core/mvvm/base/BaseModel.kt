@@ -3,7 +3,7 @@ package com.arno.jasmine.lib.core.mvvm.base
 import androidx.room.RoomDatabase
 import com.arno.jasmine.lib.config.Constants
 import com.arno.jasmine.lib.core.mvvm.i.IModel
-import com.arno.jasmine.lib.data.IDataRepository
+import com.arno.jasmine.lib.data.DataRepository
 
 /**
  * <pre>
@@ -12,7 +12,7 @@ import com.arno.jasmine.lib.data.IDataRepository
  *     desc  : Model层 加入网络和数据库接口
  * </pre>
  */
-open class BaseModel(var mDataRepository: IDataRepository?) : IModel {
+open class BaseModel(var mDataRepository: DataRepository?) : IModel {
 
     override fun released() {
         mDataRepository = null

@@ -18,8 +18,8 @@ abstract class BaseViewModel<out M : BaseModel> : ViewModel(), IViewModel {
     }
 
     override fun onCleared() {
-        super.onCleared()
         doOnCleared()
+        super.onCleared()
     }
 
     final override fun doOnInit() {

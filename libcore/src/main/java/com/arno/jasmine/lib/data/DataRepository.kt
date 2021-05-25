@@ -18,7 +18,7 @@ import retrofit2.Retrofit
  *     desc  :
  * </pre>
  */
-class DataRepository : IDataRepository {
+open class DataRepository : IDataRepository {
 
     val mRetrofit: Retrofit by inject(Retrofit::class.java)
 

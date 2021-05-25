@@ -89,11 +89,11 @@ abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
         }
     }
 
-    override fun initView() {
-        JLog.i(javaClass.simpleName, "initView")
-    }
-
-    override fun initData() {
-        JLog.i(javaClass.simpleName, "initData")
-    }
+    // override fun initView() {
+    //     JLog.i(javaClass.simpleName, "initView")
+    // }
+    //
+    // override fun initData() {
+    //     JLog.i(javaClass.simpleName, "initData")
+    // }
 }

@@ -16,4 +16,11 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainFragmentViewModel>() 
     override fun providerVMClass(): Class<MainFragmentViewModel> = MainFragmentViewModel::class.java
 
     override fun getLayoutId(): Int = R.layout.fragment_main
+    override fun initView() {
+
+    }
+
+    override fun initData() {
+        mBinding.mViewModel = mViewModel
+    }
 }

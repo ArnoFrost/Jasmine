@@ -6,6 +6,13 @@ import com.arno.jasmine.databinding.ActivityMainBinding
 import com.arno.jasmine.fragment.main.MainFragment
 import com.arno.jasmine.lib.core.mvvm.base.BaseActivity
 
+/**
+ * <pre>
+ *     author: xuxin
+ *     time  : 2021/5/21
+ *     desc  : MainActivity
+ * </pre>
+ */
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun provideVMClass(): Class<MainViewModel> = MainViewModel::class.java
 

@@ -1,14 +1,14 @@
 package com.arno.jasmine
 
 import android.app.Application
+import com.arno.jasmine.di.appModule
 import com.arno.jasmine.di.mainModule
 import com.arno.jasmine.lib.di.coreModule
-import com.arno.jasmine.lib.di.optionModule
-import com.arno.jasmine.lib.di.repositoryModule
-import com.arno.jasmine.lib.net.NetworkManager
 import com.blankj.utilcode.util.Utils
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
+import org.koin.core.logger.Level
 
 /**
  * <pre>
@@ -22,28 +22,22 @@ class MyApplication : Application() {
         super.onCreate()
         initDi()
         initUtil()
-        initNetwork()
     }
 
     private fun initDi() {
         startKoin {
+            androidLogger(Level.DEBUG)
             androidContext(this@MyApplication)
-            modules(mainModule)
-            modules(optionModule)
+            //框架核心模块
             modules(coreModule)
-            modules(repositoryModule)
-
+            //App基础
+            modules(appModule)
+            //业务模块
+            modules(mainModule)
         }
     }
 
     private fun initUtil() {
         Utils.init(this)
-    }
-
-    private fun initNetwork() {
-        val networkBuilder = NetworkManager.Builder()
-            .setDefaultTime(30L)
-            .setBaseUrl("https://www.baidu.com")
-        NetworkManager.initNetwork(networkBuilder)
     }
 }
