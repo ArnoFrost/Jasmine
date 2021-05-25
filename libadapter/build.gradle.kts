@@ -53,6 +53,5 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_COMMON)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_LIVEDATA)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
-    implementation("androidx.recyclerview:recyclerview:1.2.0")
-
+    implementation(jasmine.Library.ANDROIDX_RECYCLER_VIEW)
 }
