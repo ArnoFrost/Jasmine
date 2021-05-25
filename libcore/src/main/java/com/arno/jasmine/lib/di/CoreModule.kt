@@ -1,6 +1,7 @@
 package com.arno.jasmine.lib.di
 
 import com.arno.jasmine.lib.core.mvvm.base.BaseModel
+import com.arno.jasmine.lib.core.mvvm.base.BaseViewModel
 import com.arno.jasmine.lib.data.DataRepository
 import com.arno.jasmine.lib.di.impl.HttpUrlImpl
 import com.arno.jasmine.lib.di.impl.OkhttpClientImpl
@@ -17,6 +18,11 @@ import org.koin.dsl.module
  * </pre>
  */
 val coreModule = module {
+    factory {
+        scope<BaseViewModel<BaseModel>> {
+            scoped { BaseModel(get()) }
+        }
+    }
     factory { BaseModel(get()) }
 
     single { HttpUrlImpl() }

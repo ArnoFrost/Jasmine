@@ -1,14 +1,10 @@
 package com.arno.jasmine
 
 import android.app.Application
-import com.arno.jasmine.di.appModule
 import com.arno.jasmine.di.mainModule
-import com.arno.jasmine.lib.di.coreModule
+import com.arno.jasmine.lib.Jasmine
+import com.arno.jasmine.lib.di.ModuleConfig
 import com.blankj.utilcode.util.Utils
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.GlobalContext.startKoin
-import org.koin.core.logger.Level
 
 /**
  * <pre>
@@ -20,24 +16,20 @@ import org.koin.core.logger.Level
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        initDi()
         initUtil()
-    }
-
-    private fun initDi() {
-        startKoin {
-            androidLogger(Level.DEBUG)
-            androidContext(this@MyApplication)
-            //框架核心模块
-            modules(coreModule)
-            //App基础
-            modules(appModule)
-            //业务模块
-            modules(mainModule)
-        }
+        initJasmine()
     }
 
     private fun initUtil() {
         Utils.init(this)
     }
+
+    private fun initJasmine() {
+        val builder = ModuleConfig.Builder()
+            .setBaseUrl("https://www.baidu.com")
+        Jasmine.init(this@MyApplication, builder)
+        //业务模块
+        Jasmine.loadModules(mainModule)
+    }
+
 }

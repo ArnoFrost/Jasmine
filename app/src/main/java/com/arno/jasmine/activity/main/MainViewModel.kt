@@ -12,5 +12,4 @@ import org.koin.java.KoinJavaComponent.inject
  */
 class MainViewModel : BaseViewModel<MainModel>() {
     override val mModel: MainModel? by inject(MainModel::class.java)
-
 }

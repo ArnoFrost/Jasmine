@@ -39,14 +39,7 @@ object Library {
     const val MATERIAL = "com.google.android.material:material:1.3.0"
 
     //DI
-    //Hilt
-    //classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.daggerHilt"
-    private const val HILT_VERSION = "2.35.1"
-    const val ANDROIDX_HILT =
-        "com.google.dagger:hilt-android:$HILT_VERSION"
-    const val ANDROIDX_HILT_COMPILER =
-        "com.google.dagger:hilt-android-compiler:$HILT_VERSION"
-
+    //KOIN
     private const val KOIN_VERSION = "3.0.2"
     const val KOIN_CORE =
         "io.insert-koin:koin-core:$KOIN_VERSION"

@@ -1,8 +1,13 @@
 package com.arno.jasmine.lib.di
 
+import android.app.Application
 import com.arno.jasmine.lib.config.JAppliesOptions
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.GlobalContext
+import org.koin.core.logger.Level
 
 /**
  * <pre>
@@ -12,6 +17,18 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
  * </pre>
  */
 class ModuleConfig {
+    companion object {
+        private var mBuilder: Builder? = null
+        internal fun initModule(application: Application, builder: Builder) {
+            GlobalContext.startKoin {
+                androidLogger(Level.DEBUG)
+                androidContext(application)
+                //框架核心模块
+                modules(coreModule)
+            }
+            mBuilder = builder
+        }
+    }
 
     class Builder {
         internal var baseUrl: HttpUrl? = null
@@ -22,11 +39,6 @@ class ModuleConfig {
             baseUrl?.let {
                 this.baseUrl = baseUrl.toHttpUrlOrNull()
             }
-            return this
-        }
-
-        fun setBaseUrl(baseUrl: HttpUrl): Builder {
-            this.baseUrl = baseUrl
             return this
         }
 

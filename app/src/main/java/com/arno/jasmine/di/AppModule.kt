@@ -14,8 +14,5 @@ val appModule = module {
     single {
         ModuleConfig.Builder()
             .setBaseUrl("https://www.baidu.com")
-            .setOkHttpClientOptions(get())
-            .setRetrofitOptions(get())
-            .setRoomDatabaseOptions(get())
     }
 }
