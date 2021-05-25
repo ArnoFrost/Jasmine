@@ -22,7 +22,7 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
     IActivity {
     protected lateinit var mBinding: B
     protected lateinit var mViewModel: @UnsafeVariance VM
-    abstract fun providerVMClass(): Class<@UnsafeVariance VM>?
+    abstract fun provideVMClass(): Class<@UnsafeVariance VM>?
 
     override fun onCreate(savedInstanceState: Bundle?) {
         JLog.i(javaClass.simpleName, "onCreate")
@@ -42,7 +42,7 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
 
     private fun initVM() {
         JLog.i(javaClass.simpleName, "initVM")
-        providerVMClass()?.let {
+        provideVMClass()?.let {
             mViewModel = ViewModelProvider(this).get(it)
         }
     }

@@ -3,7 +3,6 @@ package com.arno.jasmine
 import android.app.Application
 import com.arno.jasmine.di.mainModule
 import com.arno.jasmine.lib.di.coreModule
-import com.arno.jasmine.lib.di.netModule
 import com.arno.jasmine.lib.di.optionModule
 import com.arno.jasmine.lib.di.repositoryModule
 import com.arno.jasmine.lib.net.NetworkManager
@@ -32,7 +31,6 @@ class MyApplication : Application() {
             modules(mainModule)
             modules(optionModule)
             modules(coreModule)
-            modules(netModule)
             modules(repositoryModule)
 
         }

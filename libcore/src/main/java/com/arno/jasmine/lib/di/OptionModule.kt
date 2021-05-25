@@ -12,26 +12,5 @@ import org.koin.dsl.module
  * </pre>
  */
 val optionModule = module {
-    single {
-        fun provideBaseUrl(builder: ModuleConfig.Builder): HttpUrl? {
-            return builder.baseUrl
-        }
-    }
-    single {
-        fun provideRetrofitOptions(builder: ModuleConfig.Builder): JAppliesOptions.RetrofitOptions? {
-            return builder.retrofitOptions
-        }
-    }
 
-    single {
-        fun provideOkHttpClientOptions(builder: ModuleConfig.Builder): JAppliesOptions.OkHttpClientOptions? {
-            return builder.okHttpClientOptions
-        }
-    }
-
-    single {
-        fun provideRoomDatabaseOptions(builder: ModuleConfig.Builder): JAppliesOptions.RoomDatabaseOptions? {
-            return builder.roomDatabaseOptions
-        }
-    }
 }

@@ -7,7 +7,7 @@ import com.arno.jasmine.fragment.main.MainFragment
 import com.arno.jasmine.lib.core.mvvm.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
-    override fun providerVMClass(): Class<MainViewModel> = MainViewModel::class.java
+    override fun provideVMClass(): Class<MainViewModel> = MainViewModel::class.java
 
     override fun getLayoutId() = R.layout.activity_main
 
