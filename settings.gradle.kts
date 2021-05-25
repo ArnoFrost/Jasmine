@@ -5,3 +5,4 @@ rootProject.apply {
 }
 include(":libcore")
 include(":libcommon")
+include(":libadapter")

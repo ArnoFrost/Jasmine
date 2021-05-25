@@ -10,6 +10,7 @@ buildscript {
     dependencies {
         classpath(rootProject.extra["androidPlugin"].toString())
         classpath(rootProject.extra["kotlinPlugin"].toString())
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10")
         // classpath(rootProject.extra["koinPlugin"].toString())
         // classpath(rootProject.extra["hiltPlugin"].toString())
         // classpath(rootProject.extra["ktLintPlugin"].toString())
