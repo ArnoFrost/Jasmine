@@ -56,6 +56,14 @@ object Library {
     const val ANDROIDX_ROOM_COMPILER =
         "androidx.room:room-compiler:$ROOM_VERSION"
 
+    //UI==>>>
+    //LoadSir
+    private const val LOAD_SIR_VERSION = "1.3.8"
+    const val LOAD_SIR =
+        "com.kingja.loadsir:loadsir:$LOAD_SIR_VERSION"
+
+    //UI<<<===
+
     //Net
     private const val OKHTTP = "4.9.1"
     const val NET_OKHTTP = "com.squareup.okhttp3:okhttp:$OKHTTP"

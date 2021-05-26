@@ -24,6 +24,8 @@
       <map>
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/layouts/activity/layout/activity_main.xml" value="0.29739583333333336" />
+        <entry key="libcore/src/main/res/drawable/shape_load_bg.xml" value="0.27589743589743587" />
+        <entry key="libcore/src/main/res/layout/layout_loading_view.xml" value="0.128419452887538" />
       </map>
     </option>
   </component>

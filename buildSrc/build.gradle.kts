@@ -6,6 +6,7 @@ repositories {
     google()
     mavenCentral()
     maven("https://jitpack.io")
+    maven("https://maven.aliyun.com/repository/public")
 }
 
 apply(from = "plugins.gradle.kts")

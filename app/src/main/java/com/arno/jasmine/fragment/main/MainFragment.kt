@@ -21,6 +21,16 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainFragmentViewModel>() 
     }
 
     override fun initData() {
-        mBinding.mViewModel = mViewModel
+        mBinding?.mViewModel = mViewModel
+
+        //处理加载Loading
+        mViewModel?.isLoading?.observe(this,
+            {
+                if (it) {
+                    showLoadingView()
+                } else {
+                    hideLoadingView()
+                }
+            })
     }
 }

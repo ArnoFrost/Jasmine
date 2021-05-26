@@ -14,11 +14,19 @@ import org.koin.java.KoinJavaComponent.inject
 class MainFragmentViewModel : BaseViewModel<MainFragmentModel>() {
     override val mModel: MainFragmentModel? by inject(MainFragmentModel::class.java)
     val mTitle: MutableLiveData<String> = MutableLiveData("Welcome to Jasmine~")
+    val isLoading: MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun refreshTitle() {
         mModel?.let {
-            it.refreshTitle()
-            mTitle.postValue("$mTitle ${System.currentTimeMillis()}")
+            isLoading.postValue(true)
+            object : Thread() {
+                override fun run() {
+                    sleep(2000)
+                    it.refreshTitle()
+                    isLoading.postValue(false)
+                    mTitle.postValue("$mTitle ${System.currentTimeMillis()}")
+                }
+            }.start()
         }
     }
 }

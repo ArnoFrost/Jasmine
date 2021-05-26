@@ -71,11 +71,13 @@ dependencies {
     api(jasmine.Library.ANDROIDX_ROOM)
     kapt(jasmine.Library.ANDROIDX_ROOM_COMPILER)
 
+    //LoadSir
+    api(jasmine.Library.LOAD_SIR)
+
     //Test
     testImplementation(jasmine.Library.JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_CORE)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_RULES)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_RUNNER)
-
 }

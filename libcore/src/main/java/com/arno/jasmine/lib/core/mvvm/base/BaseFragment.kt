@@ -1,5 +1,6 @@
 package com.arno.jasmine.lib.core.mvvm.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModelProvider
 import com.arno.jasmine.lib.common.util.JLog
 import com.arno.jasmine.lib.core.mvvm.i.IFragment
 import com.arno.jasmine.lib.core.mvvm.i.IView
+import com.arno.jasmine.lib.widget.LoadingDialog
 
 /**
  * <pre>
@@ -24,9 +28,12 @@ abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
     Fragment(),
     IView,
     IFragment {
-    protected lateinit var mBinding: B
-    protected lateinit var mViewModel: @UnsafeVariance VM
+    private lateinit var mContext: Context
+    protected var mBinding: B? = null
+    protected var mViewModel: @UnsafeVariance VM? = null
     abstract fun providerVMClass(): Class<@UnsafeVariance VM>?
+    protected lateinit var mLoadingView: LoadingDialog
+    protected var canNotCancel = false
 
     //数据是否加载标识
     private var isLoaded = false
@@ -41,9 +48,14 @@ abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
      * 是否fragment显示的时候都重新加载数据
      */
     protected open fun reLoad() = false
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mContext = context
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mLoadingView = LoadingDialog(view.context, canNotCancel)
         if (!lazyLoad()) {
             initVM()
             initView()
@@ -66,12 +78,13 @@ abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
         savedInstanceState: Bundle?,
     ): View? {
         mBinding = DataBindingUtil.inflate(inflater, getLayoutId(), null, false)
-        mBinding.lifecycleOwner = this
-        return mBinding.root
+        mBinding?.lifecycleOwner = this
+        return mBinding?.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        mBinding?.unbind()
         isLoaded = false
     }
 
@@ -89,11 +102,16 @@ abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
         }
     }
 
-    // override fun initView() {
-    //     JLog.i(javaClass.simpleName, "initView")
-    // }
-    //
-    // override fun initData() {
-    //     JLog.i(javaClass.simpleName, "initData")
-    // }
+    override fun showLoadingView() {
+        mLoadingView.showDialog(mContext, canNotCancel)
+    }
+
+    override fun hideLoadingView() {
+        mLoadingView.dismissDialog()
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    override fun releaseView() {
+        mLoadingView.dismissDialog()
+    }
 }

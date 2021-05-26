@@ -20,7 +20,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun initView() {
         super.initView()
-        mBinding.mViewModel = mViewModel
+        mBinding?.mViewModel = mViewModel
         supportFragmentManager.commitNow {
             add(R.id.main_root, MainFragment.newInstance(), "MainFragment")
         }
