@@ -24,7 +24,7 @@ object Preconditions {
      *
      * @param expression a boolean expression
      * @param errorMessage the exception message to use if the check fails; will be converted to a
-     * string using [String.valueOf]
+     * string using [java.lang.String.valueOf]
      * @throws IllegalArgumentException if `expression` is false
      */
     fun checkArgument(expression: Boolean, errorMessage: Any?) {
@@ -40,17 +40,19 @@ object Preconditions {
      * argument. These are matched by position - the first `%s` gets `errorMessageArgs[0]`, etc. Unmatched arguments will be appended to the formatted message in
      * square braces. Unmatched placeholders will be left as-is.
      * @param errorMessageArgs the arguments to be substituted into the message template. Arguments
-     * are converted to strings using [String.valueOf].
+     * are converted to strings using[java.lang.String.valueOf].
      * @throws IllegalArgumentException if `expression` is false
      */
     fun checkArgument(
         expression: Boolean,
         errorMessageTemplate: String?,
-        vararg errorMessageArgs: Any?
+        vararg errorMessageArgs: Any?,
     ) {
         require(expression) {
-            lenientFormat(errorMessageTemplate,
-                *errorMessageArgs)
+            lenientFormat(
+                errorMessageTemplate,
+                *errorMessageArgs
+            )
         }
     }
 
@@ -71,7 +73,7 @@ object Preconditions {
      *
      * @param expression a boolean expression
      * @param errorMessage the exception message to use if the check fails; will be converted to a
-     * string using [String.valueOf]
+     * string using [java.lang.String.valueOf]
      * @throws IllegalStateException if `expression` is false
      */
     fun checkState(expression: Boolean, errorMessage: Any?) {
@@ -88,17 +90,19 @@ object Preconditions {
      * argument. These are matched by position - the first `%s` gets `errorMessageArgs[0]`, etc. Unmatched arguments will be appended to the formatted message in
      * square braces. Unmatched placeholders will be left as-is.
      * @param errorMessageArgs the arguments to be substituted into the message template. Arguments
-     * are converted to strings using [String.valueOf].
+     * are converted to strings using[java.lang.String.valueOf].
      * @throws IllegalStateException if `expression` is false
      */
     fun checkState(
         expression: Boolean,
         errorMessageTemplate: String?,
-        vararg errorMessageArgs: Any?
+        vararg errorMessageArgs: Any?,
     ) {
         check(expression) {
-            lenientFormat(errorMessageTemplate,
-                *errorMessageArgs)
+            lenientFormat(
+                errorMessageTemplate,
+                *errorMessageArgs
+            )
         }
     }
 
@@ -121,7 +125,7 @@ object Preconditions {
      *
      * @param reference an object reference
      * @param errorMessage the exception message to use if the check fails; will be converted to a
-     * string using [String.valueOf]
+     * string using[java.lang.String.valueOf]
      * @return the non-null reference that was validated
      * @throws NullPointerException if `reference` is null
      */
@@ -141,12 +145,14 @@ object Preconditions {
      * argument. These are matched by position - the first `%s` gets `errorMessageArgs[0]`, etc. Unmatched arguments will be appended to the formatted message in
      * square braces. Unmatched placeholders will be left as-is.
      * @param errorMessageArgs the arguments to be substituted into the message template. Arguments
-     * are converted to strings using [String.valueOf].
+     * are converted to strings using[java.lang.String.valueOf].
      * @return the non-null reference that was validated
      * @throws NullPointerException if `reference` is null
      */
     fun <T> checkNotNull(
-        reference: T?, errorMessageTemplate: String?, vararg errorMessageArgs: Any?
+        reference: T?,
+        errorMessageTemplate: String?,
+        vararg errorMessageArgs: Any?,
     ): T {
         if (reference == null) {
             throw NullPointerException(lenientFormat(errorMessageTemplate, *errorMessageArgs))
@@ -155,7 +161,8 @@ object Preconditions {
     }
 
     fun lenientFormat(
-        template: String?, vararg args: Any?
+        template: String?,
+        vararg args: Any?,
     ): String {
         var template = template
         var args = args

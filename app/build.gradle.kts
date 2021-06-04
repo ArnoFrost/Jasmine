@@ -63,7 +63,7 @@ android {
     }
 }
 
-//整理资源文件
+// 整理资源文件
 fun listSubFile(): ArrayList<String> {
     val resFolder = "src/main/res/layouts"
 
@@ -88,7 +88,6 @@ dependencies {
     implementation(jasmine.Library.KOTLIN_LIB)
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
-
     implementation(jasmine.Library.ANDROIDX_CORE)
     implementation(jasmine.Library.ANDROIDX_APPCOMPAT)
     implementation(jasmine.Library.MATERIAL)
@@ -97,21 +96,19 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_ACTIVITY)
     implementation(jasmine.Library.ANDROIDX_FRAGMENT)
 
-    //DI
+    // DI
     implementation(jasmine.Library.KOIN_CORE)
     implementation(jasmine.Library.KOIN_ANDROID)
     implementation(jasmine.Library.KOIN_ANDROID_EXT)
 
-    //DATA
+    // DATA
     implementation(jasmine.Library.ANDROIDX_ROOM)
     kapt(jasmine.Library.ANDROIDX_ROOM_COMPILER)
 
-    //Test
+    // Test
     testImplementation(jasmine.Library.JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_CORE)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_RULES)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_RUNNER)
-
-
 }

@@ -42,11 +42,11 @@ android {
 dependencies {
     implementation(project(mapOf("path" to ":libcommon")))
 
-    //KOTLIN
+    // KOTLIN
     implementation(jasmine.Library.KOTLIN_LIB)
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
-    //Android
+    // Android
     implementation(jasmine.Library.ANDROIDX_ACTIVITY)
     implementation(jasmine.Library.ANDROIDX_APPCOMPAT)
     implementation(jasmine.Library.ANDROIDX_CONSTRAINT_LAYOUT)
@@ -55,26 +55,25 @@ dependencies {
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_LIVEDATA)
     implementation(jasmine.Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
 
-    //DI
+    // DI
     api(jasmine.Library.KOIN_CORE)
     api(jasmine.Library.KOIN_ANDROID)
     api(jasmine.Library.KOIN_ANDROID_EXT)
 
-
-    //NET
+    // NET
     api(jasmine.Library.NET_OKHTTP)
     api(jasmine.Library.NET_OKHTTP_LOG)
     api(jasmine.Library.NET_RETROFIT)
     api(jasmine.Library.NET_RETROFIT_GSON)
 
-    //DATA
+    // DATA
     api(jasmine.Library.ANDROIDX_ROOM)
     kapt(jasmine.Library.ANDROIDX_ROOM_COMPILER)
 
-    //LoadSir
+    // LoadSir
     api(jasmine.Library.LOAD_SIR)
 
-    //Test
+    // Test
     testImplementation(jasmine.Library.JUNIT)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_CORE)
     androidTestImplementation(jasmine.Library.ANDROIDX_TEST_JUNIT)

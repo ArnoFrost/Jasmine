@@ -20,8 +20,8 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -41,11 +41,11 @@ android {
 dependencies {
     implementation(project(mapOf("path" to ":libcommon")))
 
-    //KOTLIN
+    // KOTLIN
     implementation(jasmine.Library.KOTLIN_LIB)
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
-    //Android
+    // Android
     implementation(jasmine.Library.ANDROIDX_ACTIVITY)
     implementation(jasmine.Library.ANDROIDX_APPCOMPAT)
     implementation(jasmine.Library.ANDROIDX_CONSTRAINT_LAYOUT)

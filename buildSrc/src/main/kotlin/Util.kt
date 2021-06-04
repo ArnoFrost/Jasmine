@@ -12,7 +12,7 @@ import java.util.*
  */
 object Util {
 
-    //获取当前时间
+    // 获取当前时间
     fun getSystemTime(): String {
         val mSimpleDateFormat =
             SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CHINA)

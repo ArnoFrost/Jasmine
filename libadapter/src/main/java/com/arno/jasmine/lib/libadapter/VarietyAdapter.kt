@@ -177,12 +177,12 @@ class VarietyAdapter(
      * 检查预载机制
      */
     private fun checkPreload(position: Int) {
-        if (onPreload != null
-            && position == max(
-                itemCount - 1 - preloadItemCount,
-                0
-            )// reach the preload threshold position
-            && scrollState != SCROLL_STATE_IDLE // the list is scrolling
+        if (onPreload != null &&
+            position == max(
+                    itemCount - 1 - preloadItemCount,
+                    0
+                ) && // reach the preload threshold position
+            scrollState != SCROLL_STATE_IDLE // the list is scrolling
         ) {
             onPreload?.invoke()
         }
@@ -196,10 +196,10 @@ class VarietyAdapter(
         val firstTypeParamClassName =
             (it.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0].toString()
         val proxyClassName = it.javaClass.toString()
-        //首要匹配条件：代理类第一个类型参数和数据类型相同
-        firstTypeParamClassName == data.javaClass.toString() // primary condition:if the first type parameter of AdapterProxy is the same as the data, it means the accordingly AdapterProxy found
-                // 次要匹配条件：数据类自定义匹配代理名和当前代理名相同
-                && (data as? DataProxyMap)?.toProxy() ?: proxyClassName == proxyClassName // secondary condition: match data to proxy mapping relation defined by the data
+        // 首要匹配条件：代理类第一个类型参数和数据类型相同
+        firstTypeParamClassName == data.javaClass.toString() && // primary condition:if the first type parameter of AdapterProxy is the same as the data, it means the accordingly AdapterProxy found
+            // 次要匹配条件：数据类自定义匹配代理名和当前代理名相同
+            (data as? DataProxyMap)?.toProxy() ?: proxyClassName == proxyClassName // secondary condition: match data to proxy mapping relation defined by the data
     }
 
     /**

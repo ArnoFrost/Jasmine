@@ -35,7 +35,7 @@ abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
     protected lateinit var mLoadingView: LoadingDialog
     protected var canNotCancel = false
 
-    //数据是否加载标识
+    // 数据是否加载标识
     private var isLoaded = false
 
     /**
@@ -93,7 +93,6 @@ abstract class BaseFragment<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
         initView()
         initData()
     }
-
 
     private fun initVM() {
         JLog.i(javaClass.simpleName, "initVM")

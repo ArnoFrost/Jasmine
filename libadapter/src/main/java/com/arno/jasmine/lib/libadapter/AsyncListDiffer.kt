@@ -3,7 +3,12 @@ package com.arno.jasmine.lib.libadapter
 import android.util.Log
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListUpdateCallback
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * Helper for computing difference between two list via [DiffUtil] in a background thread
@@ -15,9 +20,9 @@ class AsyncListDiffer(
     var listUpdateCallback: ListUpdateCallback,
     /**
      * a [CoroutineDispatcher] defined by yourself
-     * common usage is to turn existing [Executor][java.util.concurrent.Executor] into [CoroutineDispatcher] by [asCoroutineDispatcher]
+     * common usage is to turn existing [Executor][java.util.concurrent.Executor] into [CoroutineDispatcher] by [kotlinx.coroutines.asCoroutineDispatcher]
      */
-    dispatcher: CoroutineDispatcher
+    dispatcher: CoroutineDispatcher,
 ) : CoroutineScope by CoroutineScope(SupervisorJob() + dispatcher) {
     companion object {
         const val DEBUG = false
@@ -84,8 +89,8 @@ class AsyncListDiffer(
             if (DEBUG) {
                 Log.d(
                     TAG,
-                        "areContentsTheSame() called with: oldItemPosition = $oldItemPosition, newItemPosition = $newItemPosition"
-                    )
+                    "areContentsTheSame() called with: oldItemPosition = $oldItemPosition, newItemPosition = $newItemPosition"
+                )
             }
             val oldItem = oldList[oldItemPosition]
             val newItem = newList[newItemPosition]
@@ -97,8 +102,8 @@ class AsyncListDiffer(
             if (DEBUG) {
                 Log.d(
                     TAG,
-                        "getChangePayload() called with: oldItemPosition = $oldItemPosition, newItemPosition = $newItemPosition"
-                    )
+                    "getChangePayload() called with: oldItemPosition = $oldItemPosition, newItemPosition = $newItemPosition"
+                )
             }
             val oldItem = oldList[oldItemPosition] as? Diff
             val newItem = newList[newItemPosition] as? Diff

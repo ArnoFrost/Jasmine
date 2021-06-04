@@ -28,7 +28,6 @@ open class BaseModel(var mDataRepository: DataRepository?) : IModel {
         return mDataRepository?.getRetrofitService(service)
     }
 
-
     /**
      * 传入Class 通过[androidx.room.Room.databaseBuilder],[#build()][<]获得对应的Class
      * @param database

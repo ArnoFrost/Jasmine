@@ -36,7 +36,6 @@ open class DataRepository : IDataRepository {
      */
     private var mRoomDatabaseCache: LruCache<String?, Any>? = null
 
-
     /**
      * 提供上下文[Context]
      * @return [.mApplication]
@@ -50,7 +49,7 @@ open class DataRepository : IDataRepository {
      * @param service
      * @param <T>
      * @return [retrofit2.Retrofit.create]
-    </T> */
+     </T> */
     @Throws(Exception::class)
     override fun <T> getRetrofitService(service: Class<T>): T? {
         if (mRetrofitServiceCache == null) {
@@ -66,7 +65,7 @@ open class DataRepository : IDataRepository {
                         if (retrofitService == null) {
                             retrofitService = mRetrofit.create(service)
                             Preconditions.checkNotNull(retrofitService)
-                            //缓存
+                            // 缓存
                             serviceCache.put(canonicalName, retrofitService!!)
                         }
                     }
@@ -82,7 +81,7 @@ open class DataRepository : IDataRepository {
      * @param database
      * @param dbName 为`null`时，默认为[Constants.DEFAULT_DATABASE_NAME]
      * @param <T>
-     * @return  [androidx.room.RoomDatabase.Builder.build]
+     * @return [androidx.room.RoomDatabase.Builder.build]
      */
     @Throws(Exception::class)
     @Suppress("UNCHECKED_CAST")
@@ -99,9 +98,11 @@ open class DataRepository : IDataRepository {
                     if (roomDatabase == null) {
                         mApplication?.let { application ->
                             val builder: RoomDatabase.Builder<T> =
-                                Room.databaseBuilder(application,
+                                Room.databaseBuilder(
+                                    application,
                                     database,
-                                    dbName ?: Constants.DEFAULT_DATABASE_NAME)
+                                    dbName ?: Constants.DEFAULT_DATABASE_NAME
+                                )
                             mRoomDatabaseOptions.applyOptions(builder)
                             roomDatabase = builder.build().apply {
                                 databaseCache.put(canonicalName, this)

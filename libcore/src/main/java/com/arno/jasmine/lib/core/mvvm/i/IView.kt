@@ -11,5 +11,4 @@ interface IView : LifecycleOwner {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun releaseView()
-
 }

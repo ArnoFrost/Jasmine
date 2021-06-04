@@ -32,7 +32,6 @@ class LoadingDialog : Dialog {
         animation.repeatCount = 10
         animation.fillAfter = true
         imageView.startAnimation(animation)
-
     }
 
     fun showDialog(context: Context, isCancel: Boolean) {
@@ -52,5 +51,4 @@ class LoadingDialog : Dialog {
         loadingDialog?.dismiss()
         loadingDialog = null
     }
-
 }

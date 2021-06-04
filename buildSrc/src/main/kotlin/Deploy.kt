@@ -18,7 +18,7 @@ object Deploy {
     const val compileSdkVersion = 30
     const val buildToolsVersion = "30.0.3"
     const val minSdkVersion = 23
-    const val targetSdkVersion = 30 //note:target 版本过高有待确定?
+    const val targetSdkVersion = 30 // note:target 版本过高有待确定?
     const val androidJunit = "androidx.test.runner.AndroidJUnitRunner"
 
     const val jasmineAppVersionCode = 1

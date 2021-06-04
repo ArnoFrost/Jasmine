@@ -15,7 +15,7 @@ object Library {
     const val KOTLINX_COROUTINES_ANDROID =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:$COROUTINES_VERSION"
 
-    //AndroidX
+    // AndroidX
     const val ANDROIDX_ACTIVITY = "androidx.activity:activity-ktx:1.2.3"
     const val ANDROIDX_ANNOTATION = "androidx.annotation:annotation:1.2.0"
     const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:1.2.0"
@@ -38,8 +38,8 @@ object Library {
 
     const val MATERIAL = "com.google.android.material:material:1.3.0"
 
-    //DI
-    //KOIN
+    // DI
+    // KOIN
     private const val KOIN_VERSION = "3.0.2"
     const val KOIN_CORE =
         "io.insert-koin:koin-core:$KOIN_VERSION"
@@ -48,23 +48,22 @@ object Library {
     const val KOIN_ANDROID_EXT =
         "io.insert-koin:koin-android-ext:$KOIN_VERSION"
 
-
-    //ROOM
+    // ROOM
     private const val ROOM_VERSION = "2.3.0"
     const val ANDROIDX_ROOM =
         "androidx.room:room-runtime:$ROOM_VERSION"
     const val ANDROIDX_ROOM_COMPILER =
         "androidx.room:room-compiler:$ROOM_VERSION"
 
-    //UI==>>>
-    //LoadSir
+    // UI==>>>
+    // LoadSir
     private const val LOAD_SIR_VERSION = "1.3.8"
     const val LOAD_SIR =
         "com.kingja.loadsir:loadsir:$LOAD_SIR_VERSION"
 
-    //UI<<<===
+    // UI<<<===
 
-    //Net
+    // Net
     private const val OKHTTP = "4.9.1"
     const val NET_OKHTTP = "com.squareup.okhttp3:okhttp:$OKHTTP"
     const val NET_OKHTTP_LOG = "com.squareup.okhttp3:logging-interceptor:3.5.0"
@@ -73,7 +72,7 @@ object Library {
     const val NET_RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT"
     const val NET_RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT"
 
-    //Util
+    // Util
     private const val BLANKJ = "1.30.6"
     const val UTIL_BLANKJ = "com.blankj:utilcodex:$BLANKJ"
 

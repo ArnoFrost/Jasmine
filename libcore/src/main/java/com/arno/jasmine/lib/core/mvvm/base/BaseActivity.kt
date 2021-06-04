@@ -30,7 +30,6 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel<BaseMode
     protected lateinit var mLoadingView: LoadingDialog
     protected var canNotCancel = false
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         JLog.i(javaClass.simpleName, "onCreate")
         StatusBar().fitSystemBar(this)

@@ -23,7 +23,7 @@ class ModuleConfig {
             GlobalContext.startKoin {
                 androidLogger(Level.DEBUG)
                 androidContext(application)
-                //框架核心模块
+                // 框架核心模块
                 modules(coreModule)
             }
             mBuilder = builder

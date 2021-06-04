@@ -28,8 +28,7 @@ class MyApplication : Application() {
         val builder = ModuleConfig.Builder()
             .setBaseUrl("https://www.baidu.com")
         Jasmine.init(this@MyApplication, builder)
-        //业务模块
+        // 业务模块
         Jasmine.loadModules(mainModule)
     }
-
 }

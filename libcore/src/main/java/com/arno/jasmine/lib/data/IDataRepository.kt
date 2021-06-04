@@ -33,5 +33,4 @@ interface IDataRepository {
      * @return [androidx.room.RoomDatabase.Builder.build]
      */
     fun <T : RoomDatabase> getRoomDatabase(database: Class<T>, dbName: String?): T?
-
 }

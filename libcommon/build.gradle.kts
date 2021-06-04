@@ -45,5 +45,4 @@ dependencies {
     implementation(jasmine.Library.KOTLINX_COROUTINES_ANDROID)
 
     api(jasmine.Library.UTIL_BLANKJ)
-
 }

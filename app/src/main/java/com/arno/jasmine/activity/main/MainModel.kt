@@ -13,6 +13,5 @@ import com.arno.jasmine.lib.data.DataRepository
 class MainModel(mDataRepository: DataRepository) :
     BaseModel(mDataRepository) {
     override fun released() {
-
     }
 }

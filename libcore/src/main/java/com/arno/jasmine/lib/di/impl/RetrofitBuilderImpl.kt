@@ -18,5 +18,4 @@ class RetrofitBuilderImpl(
     var retrofitBuilder: Retrofit.Builder? = Retrofit.Builder().apply {
         baseUrl(httpUrl).client(client)
     }
-
 }

@@ -9,5 +9,4 @@ interface IActivity {
     fun initView()
 
     fun initData()
-
 }

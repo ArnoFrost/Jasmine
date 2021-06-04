@@ -41,5 +41,4 @@ abstract class JAppliesOptions {
     abstract class RoomDatabaseOptions {
         abstract fun <T : RoomDatabase> applyOptions(builder: RoomDatabase.Builder<T>)
     }
-
 }

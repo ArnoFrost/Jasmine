@@ -36,5 +36,4 @@ val coreModule = module {
     single { OkHttpClient.Builder() }
 
     single { DataRepository() }
-
 }
